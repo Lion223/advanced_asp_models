@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Add a game";
+}
+@model ASPDemo.Models.Game
+
+<h2>Add a game</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Game</legend>
+
+        <p>
+            Name <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+
+        <p>
+            Genre <br />
+            @Html.EditorFor(model => model.Genre)
+        </p>
+
+        <p>
+            Release date <br />
+            @Html.EditorFor(model => model.ReleaseDate)
+        </p>
+
+        <p>
+            Distributor <br />
+            @Html.DropDownListFor(model => model.DistributorId, ViewBag.Distributors as SelectList)
+        </p>
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+}

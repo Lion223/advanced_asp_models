@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Delete";
+}
+@model ASPDemo.Models.Game
+
+<h2>Deleting a game</h2>
+
+<dl>
+    <dt>Name</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>Genre</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Genre)
+    </dd>
+
+    <dt>Release date</dt>
+    <dd>
+        @Html.DisplayFor(model => model.ReleaseDate)
+    </dd>
+
+    <dt>Distributor</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Distributor.Name)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}

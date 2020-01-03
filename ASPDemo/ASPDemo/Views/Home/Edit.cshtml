@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+@model ASPDemo.Models.Game
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Game</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <p>Name <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+
+        <p>Genre <br />
+            @Html.EditorFor(model => model.Genre)
+        </p>
+
+        <p>Release date <br />
+            @Html.EditorFor(model => model.ReleaseDate)
+        </p>
+
+        <p>Distributor <br />
+            @Html.DropDownListFor(model => model.DistributorId, ViewBag.Distributors as SelectList)
+        </p>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Return to games", "Index")
+</div>
+

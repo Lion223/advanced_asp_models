@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Distributor details";
+}
+
+@using ASPDemo.Models
+@model Distributor
+
+<h2>Distributor details</h2>
+
+<div>
+    <h3>Distributor: @Model.Name</h3>
+    <hr />
+
+    <dl>
+        <dt>Name</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>Owner</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>Games</dt>
+        <dd>
+            <ul>
+                @foreach (var game in Model.Games)
+                {
+                    <li>@game.Name</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>

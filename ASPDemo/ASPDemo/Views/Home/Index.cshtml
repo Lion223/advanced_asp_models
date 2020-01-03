@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Games";
+}
+@model IEnumerable<ASPDemo.Models.Game>
+
+<h2>Games</h2>
+<p>
+    @Html.ActionLink("Add a game", "Add")
+</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Release date</th>
+        <th>Distributor</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @item.ReleaseDate.ToShortDateString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distributor.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<p>
+    @Html.ActionLink("Distributors catalog", "ListDistributors")
+</p>
